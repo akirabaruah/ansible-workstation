@@ -1,0 +1,13 @@
+---
+- name: install git
+  package: name=git
+  become: yes
+
+- name: set git global configs
+  community.general.git_config:
+    name: "{{ item.name }}"
+    value: "{{ item.value }}"
+    scope: global
+  with_items:
+    - { name: user.name, value: "{{ name }}" }
+    - { name: user.email, value: "{{ email }}" }

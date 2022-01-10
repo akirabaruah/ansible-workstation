@@ -1,0 +1,23 @@
+---
+- hosts: [all, localhost]
+  vars_files:
+    - defaults/main.yaml
+
+  roles:
+    - role: geerlingguy.docker
+      vars:
+        - docker_users:
+            - "{{ ansible_user | default(ansible_env.USER, true) }}"
+      become: yes
+      tags: [docker]
+
+  tasks:
+    - import_tasks: tasks/git.yaml
+      tags: [git]
+
+    - name: install extra packages
+      package: "name={{ item }}"
+      become: yes
+      with_items: "{{ extra_packages }}"
+      when: extra_packages is defined
+      tags: [extra]
