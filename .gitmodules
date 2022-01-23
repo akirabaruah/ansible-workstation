@@ -3,4 +3,5 @@
 	url = https://github.com/geerlingguy/ansible-role-docker.git
 [submodule "roles/gantsign.visual-studio-code"]
 	path = roles/gantsign.visual-studio-code
-	url = https://github.com/akirabaruah/ansible-role-visual-studio-code
+	url = git@github.com:akirabaruah/ansible-role-visual-studio-code.git
+	branch = akira

@@ -12,6 +12,8 @@
       tags: [docker]
 
     - role: gantsign.visual-studio-code
+      vars:
+        - visual_studio_code_package_state: latest
       tags: [vscode]
 
   tasks:
