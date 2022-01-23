@@ -11,6 +11,9 @@
       become: yes
       tags: [docker]
 
+    - role: gantsign.visual-studio-code
+      tags: [vscode]
+
   tasks:
     - import_tasks: tasks/git.yaml
       tags: [git]
